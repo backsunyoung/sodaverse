@@ -1,9 +1,11 @@
 import torch
+
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import colorful as cf
 cf.use_true_colors()
 cf.use_style('monokai')
 
+import random
 
 class CosmoAgent:
     def __init__(self):
@@ -53,29 +55,47 @@ class CosmoAgent:
                 if user_input == "":
                     return default
         
+        robot_name = input("당신의 로봇의 이름을 입력하세요")
+        
+         continue_chat = ""
+            situation_narrative = input(cf.yellow("대화의 상황 설명/ 내러티브 입력 (비워 둘 수 있다):"))
+            if situation_narrative == ("안녕" robot_name):
+                situation_narrative = "로봇이 소환되었습니다."
         while True:
             continue_chat = ""
-            situation_narrative = input(cf.yellow("Input the situation description/narrative of the conversation (You can leave it empty):"))
-            if situation_narrative == "":
-                situation_narrative = "Cosmo is having a friendly conversation with a friend."
-            role_instruction = input(cf.orange("Which role should Cosmo take? Who is Cosmo talking to? (You can leave it empty):"))
-            if role_instruction == "":
-                role_instruction = "You are Cosmo and you are talking to a friend."
-
+            situation_narrative = input(cf.yellow("대화의 상황 설명/ 내러티브 입력 (비워 둘 수 있다):"))
+           
+            role_instruction = input(cf.orange(robot_name"은 어떤 역할을 맡아야 할까요?" robot_name"은 누구와 이야기하고 있습니까 (비워 둘 수 있다):"))
+            if role_instruction == "대화하자":
+                role_instruction = "당신은" robot_name "이고 친구와 대화중입니다."
+                
+            if role_instruction == "몇살입니까"
+            
+                role_instruction = ""
+                
+                
+             if role_instruction == "뭐하고 계십니까"
+                role_instruction = ""
+                
+                
+    
             self.chat(situation_narrative, role_instruction)
-            continue_chat = get_valid_input(cf.purple("Start a new conversation with new setup? [Y/N]:"), "Y")
+            continue_chat = get_valid_input(cf.purple("새 설정으로 새 대화를 시작하시겠습니까? [Y/N]:"), "Y")
             if continue_chat in ["N", "n"]:
                 break
-
+   
+ else situation_narrative == "잘못된 입력입니다."
+                
+                
         print(cf.blue("Cosmo: See you!"))
 
     def chat(self, situation_narrative, role_instruction):
-        print(cf.green("Chat with Cosmo! Input [RESET] to reset the conversation history and [END] to end the conversation."))
+        print(cf.green(robot_name "과 채팅! 대화 기록을 재설정하려면 [RESET]을 입력하고 대화를 종료하려면 [END]를 입력하세요"))
         while True:
             user_input = input("You: ")
             if user_input == "[RESET]":
                 self.reset_history()
-                print(cf.green("[Conversation history cleared. Chat with Cosmo!]"))
+                print(cf.green("[대화 기록이 지워졌습니다. " robot_name "와/과 채팅하세요!]"))
                 continue
             if user_input == "[END]":
                 break
