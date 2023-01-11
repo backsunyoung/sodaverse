@@ -78,6 +78,9 @@ class CosmoAgent:
                 role_instruction = ""
                 
                 
+             if role_instruction == "식사는 하셨습니까"
+                role_instruction = ""
+                
     
             self.chat(situation_narrative, role_instruction)
             continue_chat = get_valid_input(cf.purple("새 설정으로 새 대화를 시작하시겠습니까? [Y/N]:"), "Y")
