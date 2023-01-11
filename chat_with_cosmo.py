@@ -93,7 +93,7 @@ class CosmoAgent:
  else situation_narrative == "잘못된 입력입니다."
                 
                 
-        print(cf.blue("Cosmo: See you!"))
+        print(cf.blue("다시 만나요"))
 
     def chat(self, situation_narrative, role_instruction):
         print(cf.green(robot_name "과 채팅! 대화 기록을 재설정하려면 [RESET]을 입력하고 대화를 종료하려면 [END]를 입력하세요"))
@@ -109,7 +109,7 @@ class CosmoAgent:
             print(cf.blue("Cosmo: " + response))
 
 def main():
-    print(cf.bold | cf.blue("Welcome to SODAverse!"))
+    print(cf.bold | cf.blue("환영합니다"))
     cosmo = CosmoAgent()
     cosmo.run()
 
