@@ -7,6 +7,8 @@ cf.use_style('monokai')
 
 import random
 
+yourname = input("사용자의 이름을 입력하세요")
+
 class CosmoAgent:
     def __init__(self):
         print(cf.bold | cf.purple("Loading COSMO-xl..."))
